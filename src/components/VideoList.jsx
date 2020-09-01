@@ -4,7 +4,8 @@ import VideoPlayer from './VideoPlayer.js';
 var VideoList = (props) => (
 
   <div className="video-list">
-    {props.videos.map((video) => <VideoListEntry video={video}/>)}
+    {props.videos.map((video) => <VideoListEntry click={props.click} video={video}/>)}
+
   </div>
 );
 // PropTypes tell other developers what `props` a component expects
