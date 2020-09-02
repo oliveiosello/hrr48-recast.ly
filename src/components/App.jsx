@@ -5,6 +5,7 @@ import VideoPlayer from './VideoPlayer.js';
 import VideoListEntry from './VideoListEntry.js';
 import Search from './Search.js';
 import searchYouTube from '../lib/searchYouTube.js';
+import YOUTUBE_API_KEY from '../config/youtube.example.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,15 +23,16 @@ class App extends React.Component {
 
   getYouTubeVideos(query) {
     var options = {
-      key: 'AIzaSyAJu919gM7I-K6iFnJ2yBHFuWbXzzuCZyU',
-      query: query
+      key: YOUTUBE_API_KEY,
+      query: query,
+      max: 5
     };
 
     searchYouTube(options, (videos) => {
       this.setState({
         allVideos: videos,
         video: videos[0]
-      })();
+      });
     });
   }
 
